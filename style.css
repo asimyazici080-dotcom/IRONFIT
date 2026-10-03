@@ -1,20 +1,1253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: #111;
+    background: #070707;
     color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
-h1 {
-    color: red;
-    font-size: 60px;
+
+/* =========================
+   ARKA PLAN
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(190, 0, 0, 0.35),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #050505,
+            #130000 55%,
+            #050505
+        );
 }
 
-button {
-    background-color: red;
+.red-glow {
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    right: -150px;
+    top: 100px;
+
+    background: #9b0000;
+
+    filter: blur(180px);
+
+    opacity: 0.25;
+}
+
+
+/* GRID */
+
+.grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 90px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    position: relative;
+    z-index: 20;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.logo span {
+    color: #e00000;
+}
+
+nav {
+    display: flex;
+    gap: 40px;
+}
+
+nav a {
+    color: #aaa;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
     color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 8px;
+}
+
+
+.login-btn {
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid #555;
+
+    padding: 12px 22px;
+
+    font-weight: bold;
+
     cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: white;
+    color: black;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: calc(100vh - 90px);
+
+    padding: 80px 7%;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* SOL TARAF */
+
+.hero-content {
+    width: 55%;
+
+    position: relative;
+    z-index: 5;
+}
+
+.small-title {
+    color: #e00000;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(70px, 9vw, 150px);
+
+    line-height: 0.82;
+
+    letter-spacing: -8px;
+
+    font-weight: 1000;
+
+    margin-bottom: 35px;
+}
+
+.hero h1 span {
+    color: transparent;
+
+    -webkit-text-stroke: 2px white;
+}
+
+.description {
+    max-width: 450px;
+
+    color: #999;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+
+/* BUTONLAR */
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.main-btn,
+.outline-btn {
+    padding: 17px 28px;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.main-btn {
+    border: none;
+
+    background: #d90000;
+
+    color: white;
+}
+
+.main-btn span {
+    margin-left: 20px;
+
+    font-size: 18px;
+}
+
+.main-btn:hover {
+    background: white;
+
+    color: black;
+
+    transform: translateY(-3px);
+}
+
+.outline-btn {
+    background: transparent;
+
+    border: 1px solid #555;
+
+    color: white;
+}
+
+.outline-btn:hover {
+    border-color: white;
+}
+
+
+/* =========================
+   SAĞ GÖRSEL ALANI
+========================= */
+
+.hero-visual {
+    width: 45%;
+
+    height: 600px;
+
+    position: relative;
+}
+
+
+/* DAİRELER */
+
+.circle {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.circle-one {
+    width: 500px;
+    height: 500px;
+
+    right: -100px;
+    top: 50px;
+}
+
+.circle-two {
+    width: 350px;
+    height: 350px;
+
+    right: -25px;
+    top: 125px;
+
+    border-color: rgba(220,0,0,0.5);
+}
+
+
+/* SPORCU TEMSİLİ */
+
+.fake-athlete {
+    position: absolute;
+
+    right: 100px;
+    bottom: 50px;
+
+    width: 250px;
+    height: 450px;
+
+    filter: drop-shadow(0 0 30px rgba(255,0,0,0.3));
+}
+
+
+/* KAFA */
+
+.head {
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    background: #171717;
+
+    border-radius: 50%;
+
+    left: 90px;
+    top: 0;
+
+    border: 2px solid #333;
+}
+
+
+/* GÖVDE */
+
+.body {
+    position: absolute;
+
+    width: 130px;
+    height: 250px;
+
+    background: linear-gradient(
+        90deg,
+        #080808,
+        #2b2b2b,
+        #080808
+    );
+
+    left: 60px;
+    top: 65px;
+
+    border-radius: 45% 45% 20% 20%;
+}
+
+
+/* KOLLAR */
+
+.arm {
+    position: absolute;
+
+    width: 55px;
+    height: 230px;
+
+    background: #121212;
+
+    top: 75px;
+
+    border-radius: 40px;
+}
+
+.arm.left {
+    left: 15px;
+
+    transform: rotate(15deg);
+}
+
+.arm.right {
+    right: 15px;
+
+    transform: rotate(-15deg);
+}
+
+
+/* SPORCU YAZISI */
+
+.athlete-text {
+    position: absolute;
+
+    right: 0;
+    top: 80px;
+
+    z-index: 5;
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: #aaa;
+
+    writing-mode: vertical-rl;
+}
+
+.athlete-text span {
+    color: #e00000;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   ÇAPRAZ ŞERİTLER
+========================= */
+
+.stripe {
+    position: absolute;
+
+    width: 120%;
+
+    left: -10%;
+
+    height: 70px;
+
+    background: white;
+
+    color: black;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    z-index: 3;
+
+    transform: rotate(-7deg);
+
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+.stripe div {
+    white-space: nowrap;
+
+    font-size: 28px;
+
+    font-weight: 1000;
+
+    letter-spacing: 4px;
+
+    animation: moveText 18s linear infinite;
+}
+
+.stripe-one {
+    top: 38%;
+}
+
+.stripe-two {
+    top: 62%;
+
+    background: #b90000;
+
+    color: white;
+
+    transform: rotate(7deg);
+}
+
+.stripe-two div {
+    animation-direction: reverse;
+}
+
+
+/* HAREKET */
+
+@keyframes moveText {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* =========================
+   ALT İSTATİSTİK
+========================= */
+
+.stats {
+    position: relative;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 100px;
+
+    padding: 40px;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    background: rgba(0,0,0,0.6);
+}
+
+.stats div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.stats strong {
+    font-size: 32px;
+}
+
+.stats span {
+    font-size: 11px;
+
+    color: #777;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   MOBİL
+========================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        padding-top: 70px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-visual {
+        width: 100%;
+
+        margin-top: 50px;
+    }
+
+    .hero h1 {
+        font-size: 75px;
+    }
+
+    .stats {
+        gap: 30px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .login-btn {
+        padding: 9px 14px;
+    }
+
+    .hero {
+        padding: 50px 5%;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+
+        letter-spacing: -4px;
+    }
+
+    .hero-visual {
+        transform: scale(0.75);
+
+        margin-left: -50px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .stats {
+        gap: 20px;
+
+        padding: 30px 10px;
+    }
+
+    .stats strong {
+        font-size: 23px;
+    }
+
+    .stripe div {
+        font-size: 20px;
+    }
+
+}* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #070707;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   ARKA PLAN
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(190, 0, 0, 0.35),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #050505,
+            #130000 55%,
+            #050505
+        );
+}
+
+.red-glow {
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    right: -150px;
+    top: 100px;
+
+    background: #9b0000;
+
+    filter: blur(180px);
+
+    opacity: 0.25;
+}
+
+
+/* GRID */
+
+.grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 90px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    position: relative;
+    z-index: 20;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.logo span {
+    color: #e00000;
+}
+
+nav {
+    display: flex;
+    gap: 40px;
+}
+
+nav a {
+    color: #aaa;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+
+.login-btn {
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid #555;
+
+    padding: 12px 22px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: white;
+    color: black;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: calc(100vh - 90px);
+
+    padding: 80px 7%;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* SOL TARAF */
+
+.hero-content {
+    width: 55%;
+
+    position: relative;
+    z-index: 5;
+}
+
+.small-title {
+    color: #e00000;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(70px, 9vw, 150px);
+
+    line-height: 0.82;
+
+    letter-spacing: -8px;
+
+    font-weight: 1000;
+
+    margin-bottom: 35px;
+}
+
+.hero h1 span {
+    color: transparent;
+
+    -webkit-text-stroke: 2px white;
+}
+
+.description {
+    max-width: 450px;
+
+    color: #999;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+
+/* BUTONLAR */
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.main-btn,
+.outline-btn {
+    padding: 17px 28px;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.main-btn {
+    border: none;
+
+    background: #d90000;
+
+    color: white;
+}
+
+.main-btn span {
+    margin-left: 20px;
+
+    font-size: 18px;
+}
+
+.main-btn:hover {
+    background: white;
+
+    color: black;
+
+    transform: translateY(-3px);
+}
+
+.outline-btn {
+    background: transparent;
+
+    border: 1px solid #555;
+
+    color: white;
+}
+
+.outline-btn:hover {
+    border-color: white;
+}
+
+
+/* =========================
+   SAĞ GÖRSEL ALANI
+========================= */
+
+.hero-visual {
+    width: 45%;
+
+    height: 600px;
+
+    position: relative;
+}
+
+
+/* DAİRELER */
+
+.circle {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.circle-one {
+    width: 500px;
+    height: 500px;
+
+    right: -100px;
+    top: 50px;
+}
+
+.circle-two {
+    width: 350px;
+    height: 350px;
+
+    right: -25px;
+    top: 125px;
+
+    border-color: rgba(220,0,0,0.5);
+}
+
+
+/* SPORCU TEMSİLİ */
+
+.fake-athlete {
+    position: absolute;
+
+    right: 100px;
+    bottom: 50px;
+
+    width: 250px;
+    height: 450px;
+
+    filter: drop-shadow(0 0 30px rgba(255,0,0,0.3));
+}
+
+
+/* KAFA */
+
+.head {
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    background: #171717;
+
+    border-radius: 50%;
+
+    left: 90px;
+    top: 0;
+
+    border: 2px solid #333;
+}
+
+
+/* GÖVDE */
+
+.body {
+    position: absolute;
+
+    width: 130px;
+    height: 250px;
+
+    background: linear-gradient(
+        90deg,
+        #080808,
+        #2b2b2b,
+        #080808
+    );
+
+    left: 60px;
+    top: 65px;
+
+    border-radius: 45% 45% 20% 20%;
+}
+
+
+/* KOLLAR */
+
+.arm {
+    position: absolute;
+
+    width: 55px;
+    height: 230px;
+
+    background: #121212;
+
+    top: 75px;
+
+    border-radius: 40px;
+}
+
+.arm.left {
+    left: 15px;
+
+    transform: rotate(15deg);
+}
+
+.arm.right {
+    right: 15px;
+
+    transform: rotate(-15deg);
+}
+
+
+/* SPORCU YAZISI */
+
+.athlete-text {
+    position: absolute;
+
+    right: 0;
+    top: 80px;
+
+    z-index: 5;
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: #aaa;
+
+    writing-mode: vertical-rl;
+}
+
+.athlete-text span {
+    color: #e00000;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   ÇAPRAZ ŞERİTLER
+========================= */
+
+.stripe {
+    position: absolute;
+
+    width: 120%;
+
+    left: -10%;
+
+    height: 70px;
+
+    background: white;
+
+    color: black;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    z-index: 3;
+
+    transform: rotate(-7deg);
+
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+.stripe div {
+    white-space: nowrap;
+
+    font-size: 28px;
+
+    font-weight: 1000;
+
+    letter-spacing: 4px;
+
+    animation: moveText 18s linear infinite;
+}
+
+.stripe-one {
+    top: 38%;
+}
+
+.stripe-two {
+    top: 62%;
+
+    background: #b90000;
+
+    color: white;
+
+    transform: rotate(7deg);
+}
+
+.stripe-two div {
+    animation-direction: reverse;
+}
+
+
+/* HAREKET */
+
+@keyframes moveText {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* =========================
+   ALT İSTATİSTİK
+========================= */
+
+.stats {
+    position: relative;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 100px;
+
+    padding: 40px;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    background: rgba(0,0,0,0.6);
+}
+
+.stats div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.stats strong {
+    font-size: 32px;
+}
+
+.stats span {
+    font-size: 11px;
+
+    color: #777;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   MOBİL
+========================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        padding-top: 70px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-visual {
+        width: 100%;
+
+        margin-top: 50px;
+    }
+
+    .hero h1 {
+        font-size: 75px;
+    }
+
+    .stats {
+        gap: 30px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .login-btn {
+        padding: 9px 14px;
+    }
+
+    .hero {
+        padding: 50px 5%;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+
+        letter-spacing: -4px;
+    }
+
+    .hero-visual {
+        transform: scale(0.75);
+
+        margin-left: -50px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .stats {
+        gap: 20px;
+
+        padding: 30px 10px;
+    }
+
+    .stats strong {
+        font-size: 23px;
+    }
+
+    .stripe div {
+        font-size: 20px;
+    }
+
 }
