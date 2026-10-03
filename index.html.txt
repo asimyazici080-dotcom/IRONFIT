@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IRONFIT</title>
+</head>
+
+<body>
+
+    <h1>IRONFIT</h1>
+
+    <p>Site çalışıyor!</p>
+
+</body>
+</html>
